@@ -13,7 +13,7 @@ import java.util.Set;
  * The edges of the graph are not labeled.
  * Representation of edges via an adjacency matrix.
  * 
- * @author UCSD MOOC development team and YOU
+ * @author UCSD MOOC development team and Sudharaka
  *
  */
 public class GraphAdjMatrix extends Graph {
@@ -98,7 +98,7 @@ public class GraphAdjMatrix extends Graph {
 		return inNeighbors;
 	}
 	
-	//For learners to implement
+	//TODO: For learners to implement
 	/** 
 	 * Implement the abstract method for finding all 
 	 * vertices reachable by two hops from v.
@@ -108,7 +108,21 @@ public class GraphAdjMatrix extends Graph {
 	 * @return List<Integer> a list of indices of vertices.  
 	 */	
 	public List<Integer> getDistance2(int v) {
-		return null;
+		
+		List<Integer> twoHopNeighbors = new ArrayList<Integer>();
+		
+		for (int j = 0; j < getNumVertices(); j++){
+			int element = 0;
+			
+			for(int i = 0; i < getNumVertices(); i++){
+				element += adjMatrix[v][i] * adjMatrix[i][j];
+			}
+			
+			for (int i = 0; i < element; i++){
+				twoHopNeighbors.add(j);
+			}
+		}
+		return twoHopNeighbors;
 	}
 	
 	/**

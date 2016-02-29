@@ -17,7 +17,7 @@ import util.GraphLoader;
  * The edges of the graph are not labeled.
  * Representation of edges is left abstract.
  * 
- * @author UCSD MOOC development team and YOU
+ * @author UCSD MOOC development team and Sudharaka
  * 
  */
 
@@ -121,8 +121,17 @@ public abstract class Graph {
 	 * @return The degree sequence of this graph.
 	 */
 	public List<Integer> degreeSequence() {
-		// XXX: Implement in part 1 of week 1
-		return null;
+		// TODO: Implement in part 1 of week 1
+		List<Integer> degreeSequence = new ArrayList<Integer>();
+		
+		for (int i = 0; i < getNumVertices(); i++){
+			degreeSequence.add(getInNeighbors(i).size() 
+					+ getNeighbors(i).size());
+		}
+		
+		Collections.sort(degreeSequence, Collections.reverseOrder());
+		return degreeSequence;
+
 	}
 	
 	/**
@@ -130,7 +139,7 @@ public abstract class Graph {
 	 * @param v The starting vertex
 	 * @return A list of the vertices that can be reached in exactly two hops (by 
 	 * following two edges) from vertex v.
-	 * XXX: Implement in part 2 of week 1 for each subclass of Graph
+	 * TODO: Implement in part 2 of week 1 for each subclass of Graph
 	 */
 	public abstract List<Integer> getDistance2(int v); 
 
@@ -228,9 +237,8 @@ public abstract class Graph {
 
 	
 	public static void main (String[] args) {
-		GraphLoader.createIntersectionsFile("data/maps/myucsd.map", "data/intersections/myucsd.intersections");
+		GraphLoader.createIntersectionsFile("data/maps/ucsd.map", "data/intersections/ucsd.intersections");
 		
-
 		// For testing of Part 1 functionality
 		// Add your tests here to make sure your degreeSequence method is returning
 		// the correct list, after examining the graphs.
@@ -261,8 +269,12 @@ public abstract class Graph {
 		// Test your distance2 code here.
 		System.out.println("Testing distance-two methods on sample graphs...");
 		System.out.println("Goal: implement method using two approaches.");
+		
+		GraphAdjMatrix graphFromFile2 = new GraphAdjMatrix();
+		GraphLoader.loadRoadMap("data/testdata/simpletest.map", graphFromFile2);
 
-
+		System.out.println(graphFromFile.getDistance2(2));
+		System.out.println(graphFromFile2.getDistance2(2));
 		
 	}
 }
