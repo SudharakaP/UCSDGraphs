@@ -403,13 +403,13 @@ public class MapGraph {
 			GeographicPoint minNode = node;
 			aStarSearch(curr, node);
 		    double minDistance  = vertexListAStar.get(node).getCurrentDistance();
-		    //System.out.println(minDistance);
+		    
 			for (int i = 0; i < nodes.size(); i++){
 				
 				node = nodes.get(i);
 				aStarSearch(curr, node);
 				double distance = vertexListAStar.get(node).getCurrentDistance(); 
-				//System.out.println(distance);
+			
 				if(distance < minDistance){
 					minNode = node;
 					minDistance = distance;
