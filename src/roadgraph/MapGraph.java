@@ -36,7 +36,12 @@ public class MapGraph {
 	private int numVertices;
 	private int numEdges;
 	private Map<GeographicPoint, ArrayList<EdgeData>> adjListsMap;
+	
+	// HashMap to store MapNode objects
 	private Map<GeographicPoint, MapNode> vertexList;
+	
+	// HashMap to store MapNodeAStar objects -> subclass of MapNode
+	Map<GeographicPoint, MapNodeAStar> vertexListAStar = new HashMap<GeographicPoint, MapNodeAStar>();
 	
 	/** 
 	 * Create a new empty MapGraph 
@@ -308,8 +313,7 @@ public class MapGraph {
 		Map<GeographicPoint, GeographicPoint> parentMap = new HashMap
 				<GeographicPoint, GeographicPoint>();
 		
-		// Hashmap to store MapNodeAStar objects -> subclass of MapNode
-		Map<GeographicPoint, MapNodeAStar> vertexListAStar = new HashMap<GeographicPoint, MapNodeAStar>();
+		
 		
 		// Copy all vertexList objects to vertexListAStar
 		for(GeographicPoint geoPoint: vertexList.keySet()){
@@ -373,16 +377,62 @@ public class MapGraph {
 		return null;
 	}
 	
+	/** Takes a set of vertices and returns a route (not necessarily the best) which visits 
+	 * each vertex and returns back to the start. This method uses the Greedy Algorithm.
+	 * 
+	 * @param nodes the list of nodes to traverse with the first one being the starting node
+	 * @return the list of nodes that forms a path through the given vertices
+	 *
+	 */
+	public List<GeographicPoint> greedyAlgorithm(GeographicPoint start, List<GeographicPoint> nodes){
+		
+		// if the start node is contained in the nodes remove it 
+		// (since we already visits the start node at the beginning)
+		if (nodes.contains(start)){
+			nodes.remove(start);
+		}
+		
+		// the list to return after executing the greedy algorithm
+		List<GeographicPoint> greedyList = new ArrayList<GeographicPoint>();
+		GeographicPoint curr = start;
+			
+		// perform the Greedy algorithm
+		while(!nodes.isEmpty()){
+
+			GeographicPoint node = nodes.get(0);
+			GeographicPoint minNode = node;
+			aStarSearch(curr, node);
+		    double minDistance  = vertexListAStar.get(node).getCurrentDistance();
+		    //System.out.println(minDistance);
+			for (int i = 0; i < nodes.size(); i++){
+				
+				node = nodes.get(i);
+				aStarSearch(curr, node);
+				double distance = vertexListAStar.get(node).getCurrentDistance(); 
+				//System.out.println(distance);
+				if(distance < minDistance){
+					minNode = node;
+					minDistance = distance;
+				}
+
+			}
+			nodes.remove(minNode);
+			greedyList.add(minNode);
+			curr = minNode;
+		}
+		return greedyList;
+	}
+	
 	public static void main(String[] args)
 	{
-		/*System.out.print("Making a new map...");
+		System.out.print("Making a new map...");
 		MapGraph theMap = new MapGraph();
 		System.out.print("DONE. \nLoading the map...");
 		GraphLoader.loadRoadMap("data/testdata/simpletest.map", theMap);
 		System.out.println("DONE.");
 		
 		// You can use this method for testing.  
-		System.out.println(theMap.bfs(new GeographicPoint(1.0, 1.0), 
+		/*System.out.println(theMap.bfs(new GeographicPoint(1.0, 1.0), 
 				new GeographicPoint(8.0, -1.0)));
 		
 		System.out.println(theMap.dijkstra(new GeographicPoint(1.0, 1.0), 
@@ -391,8 +441,19 @@ public class MapGraph {
 		System.out.println(theMap.aStarSearch(new GeographicPoint(1.0, 1.0), 
 				new GeographicPoint(8.0, -1.0)));*/
 		
+		GeographicPoint start = new GeographicPoint(4.0, 1.0);
+		List<GeographicPoint> list = new ArrayList<GeographicPoint>();
+		
+		list.add(new GeographicPoint(4.0, -1.0));
+		list.add(new GeographicPoint(4.0, 0.0));
+		list.add(new GeographicPoint(8.0, -1.0));
+		list.add(new GeographicPoint(5.0, 1.0));
+		list.add(new GeographicPoint(6.5, 0.0));
+		
+		System.out.println(theMap.greedyAlgorithm(start, list));
+		
 		// Use this code in Week 3 End of Week Quiz
-		MapGraph theMap = new MapGraph();
+		/*MapGraph theMap = new MapGraph();
 		System.out.print("DONE. \nLoading the map...");
 		GraphLoader.loadRoadMap("data/maps/utc.map", theMap);
 		System.out.println("DONE.");
@@ -402,7 +463,8 @@ public class MapGraph {
 		
 		
 		List<GeographicPoint> route = theMap.dijkstra(start,end);
-		List<GeographicPoint> route2 = theMap.aStarSearch(start,end);		
+		List<GeographicPoint> route2 = theMap.aStarSearch(start,end);*/
+		
 	}
 	
 }
