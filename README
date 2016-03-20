@@ -51,6 +51,3 @@ Importing Project into eclipse:
 	2. Import the starter files:
 	  File -> Import -> Select "File System" -> Next -> Browse and set 
 	  root directory to folder contents of zip were extracted to -> Finish
-
-Feel free to use another IDE or manually compile and run your programs.
-If you need help, google is your friend.
