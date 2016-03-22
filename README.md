@@ -1,5 +1,5 @@
 # Advanced Data Structures in Java
-This repository contain the work I have done with regard to the **Advanced Data Structures in Java** course in Coursera under the specialization, **Java Programming: Object-Oriented Design of Data Structures**. The final project consist of a map application which can output the optimal route between two cities using one of Breadth First Search, Dijkstra's or A-Star Algorithm.
+This repository contain the work I have done with regard to the **Advanced Data Structures in Java** course in Coursera under the specialization, **Java Programming: Object-Oriented Design of Data Structures**. The final project consist of a map application which can output the optimal route between two points (intersections or cities etc) using one of Breadth First Search, Dijkstra's or A-Star Algorithm.
 
 ### Importing Project into eclipse:
 - Create a new Java Project in your workspace
