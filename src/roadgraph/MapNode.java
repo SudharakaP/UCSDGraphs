@@ -3,7 +3,7 @@ package roadgraph;
 import geography.GeographicPoint;
 
 /**
- * @author Sudharaka
+ * @author Sudharaka Palamakumbura
  * A class that represents a vertex along with its associated data
  * 
  */

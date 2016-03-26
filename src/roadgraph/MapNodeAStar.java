@@ -3,7 +3,7 @@ package roadgraph;
 import geography.GeographicPoint;
 
 /**
- * @author Sudharaka
+ * @author Sudharaka Palamakumbura
  * A class that represents a vertex for the A-Star algorithm. 
  * This class extends the MapNode class which is defined for
  * general vertices of the MapGraph.

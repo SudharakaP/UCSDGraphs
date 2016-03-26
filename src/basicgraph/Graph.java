@@ -17,7 +17,7 @@ import util.GraphLoader;
  * The edges of the graph are not labeled.
  * Representation of edges is left abstract.
  * 
- * @author UCSD MOOC development team and Sudharaka
+ * @author UCSD MOOC development team and Sudharaka Palamakumbura
  * 
  */
 
