@@ -1,12 +1,4 @@
-/**
- * @author UCSD MOOC development team and YOU
- * 
- * A class which represents a graph of geographic locations
- * Nodes in the graph are intersections between 
- *
- */
 package roadgraph;
-
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,10 +16,10 @@ import geography.GeographicPoint;
 import util.GraphLoader;
 
 /**
- * @author UCSD MOOC development team and Sudharaka
+ * @author UCSD MOOC development team and Sudharaka Palamakumbura
  * 
  * A class which represents a graph of geographic locations
- * Nodes in the graph are intersections between 
+ * Nodes in the graph are intersections between roads
  *
  */
 public class MapGraph {
