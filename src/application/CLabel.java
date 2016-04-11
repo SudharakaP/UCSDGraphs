@@ -56,7 +56,6 @@ public class CLabel<T> extends Label {
 			setTextFill(GREEN);
 		}
 		else {
-			// TODO -- could change this to be more generic
 			setText("Choose Point");
 			setTextFill(RED);
 		}

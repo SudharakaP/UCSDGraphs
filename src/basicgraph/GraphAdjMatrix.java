@@ -95,7 +95,6 @@ public class GraphAdjMatrix extends Graph {
 		return inNeighbors;
 	}
 	
-	//TODO: For learners to implement
 	/** 
 	 * Implement the abstract method for finding all 
 	 * vertices reachable by two hops from v.

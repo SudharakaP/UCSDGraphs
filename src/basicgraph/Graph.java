@@ -118,7 +118,7 @@ public abstract class Graph {
 	 * @return The degree sequence of this graph.
 	 */
 	public List<Integer> degreeSequence() {
-		// TODO: Implement in part 1 of week 1
+	
 		List<Integer> degreeSequence = new ArrayList<Integer>();
 		
 		for (int i = 0; i < getNumVertices(); i++){
@@ -136,7 +136,6 @@ public abstract class Graph {
 	 * @param v The starting vertex
 	 * @return A list of the vertices that can be reached in exactly two hops (by 
 	 * following two edges) from vertex v.
-	 * TODO: Implement in part 2 of week 1 for each subclass of Graph
 	 */
 	public abstract List<Integer> getDistance2(int v); 
 

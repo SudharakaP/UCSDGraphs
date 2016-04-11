@@ -174,7 +174,7 @@ public class FetchController {
     			alert.showAndWait();
             }
             else if(!dataSet.isDisplayed()) {
-            	// TODO -- only time I need route service ....redo?
+            	
                 if(routeService.isRouteDisplayed()) {
                 	routeService.hideRoute();
                 }

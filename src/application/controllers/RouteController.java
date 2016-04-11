@@ -100,7 +100,6 @@ public class RouteController {
         	routeService.hideRoute();
         });
 
-        //TODO -- implement
         resetButton.setOnAction( e -> {
 
             routeService.reset();

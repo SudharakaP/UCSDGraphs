@@ -107,7 +107,7 @@ implements MapComponentInitializedListener {
 		Image dImage = new Image(MarkerManager.destinationURL);
 		CLabel<geography.GeographicPoint> startLabel = new CLabel<geography.GeographicPoint>("Empty.", new ImageView(sImage), null);
 		CLabel<geography.GeographicPoint> endLabel = new CLabel<geography.GeographicPoint>("Empty.", new ImageView(dImage), null);
-		//TODO -- hot fix
+
 		startLabel.setMinWidth(180);
 		endLabel.setMinWidth(180);
 		//        startLabel.setWrapText(true);

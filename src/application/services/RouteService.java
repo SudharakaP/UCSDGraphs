@@ -123,7 +123,7 @@ public class RouteService {
                     MapApp.showInfoAlert("Routing Error : ", "No path found");
                 	return false;
                 }
-                // TODO -- debug road segments
+
             	List<LatLong> mapPath = constructMapPath(path);
                 //List<LatLong> mapPath = new ArrayList<LatLong>();
                 //for(geography.GeographicPoint point : path) {

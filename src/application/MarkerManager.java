@@ -53,7 +53,7 @@ public class MarkerManager {
         markerPositions = null;
     }
     public MarkerManager(GoogleMap map, SelectManager selectManager) {
-    	// TODO -- parameters?
+    	
         dataSet = null;
 
     }
@@ -96,7 +96,6 @@ public class MarkerManager {
     	rv = null;
     }
 
-    // TODO -- protect against this being called without visualization built
     public void startVisualization() {
     	if(rv != null) {
 	    	rv.startVisualization();
@@ -128,9 +127,6 @@ public class MarkerManager {
         marker.setVisible(true);
     }
 
-    /**
-     * TODO -- Might need to create all new markers and add them??
-     */
     public void restoreMarkers() {
     	Iterator<geography.GeographicPoint> it = markerMap.keySet().iterator();
         while(it.hasNext()) {

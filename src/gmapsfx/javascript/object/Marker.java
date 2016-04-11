@@ -49,10 +49,6 @@ public class Marker extends JavascriptObject {
         this.title = title;
     }
 
-
-
-
-    // TODO -- take this out ?
     /**
      * Sets the icon of this Marker
      * @param icon The Marker's new icon
