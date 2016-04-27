@@ -9,10 +9,7 @@ package application;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-
 import gmapsfx.javascript.event.UIEventType;
-import gmapsfx.javascript.object.Animation;
 import gmapsfx.javascript.object.GoogleMap;
 import gmapsfx.javascript.object.LatLong;
 import gmapsfx.javascript.object.Marker;
